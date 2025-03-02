@@ -1,8 +1,8 @@
-# Sample SmolAgents
+# Sample Usage Smolagents
 
 ## Overview
 
-This project demonstrates the use of smolagents from Hugging Face to create AI agents.
+This project demonstrates the use of [smolagents](https://huggingface.co/docs/smolagents/en/index) from Hugging Face to create AI agents.
 
 ## Requirements
 
@@ -42,15 +42,43 @@ ollama run qwen2.5
 
 > This must be done only once.
 
-## Usage
+> This is a small agent that can get confused easily. For the actual implementation, use a model with more parameters.
+
+## Sample Currency Exchange
 
 To run the currency conversion agent, execute the following command:
 
 > Ensure that the Ollama server is running.
 
 ```sh
-poetry run currency_agent.py
+poetry run currency_exchange_sample.py
 ```
+
+Observe it uses the tools provided.
+
+## Sample Currency Exchange with Planning
+
+To run the currency conversion agent with planning, execute the following command:
+
+> Ensure that the Ollama server is running.
+
+```sh
+poetry run currency_exchange_planning_sample.py
+```
+
+Observe the planning that happens for each step.
+
+## Sample Currency Exchange with Agent Manager
+
+To run the currency conversion agent with a manager, execute the following command:
+
+> Ensure that the Ollama server is running.
+
+```sh
+poetry run currency_exchange_managed_sample.py
+```
+
+Observe how the manager delegates tasks to other agents if necessary.
 
 ## Author
 
