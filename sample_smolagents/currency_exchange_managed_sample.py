@@ -8,14 +8,13 @@ exchange_rate = ExchangeRate()
 
 service_charge_agent = CodeAgent(model=model,
                                  name="service_charge_agent",
-                                 description="The agent that provides the latest service charge rate then "
-                                             "calculates the service charge.",
+                                 description="Calculate the latest fixed service change rate.",
                                  tools=[calculate_service_charge, service_charge_rate],
                                  )
 
 exchange_rate_agent = CodeAgent(model=model,
                                 name="exchange_rate_agent",
-                                description="The agent that retrieves the current exchange rate",
+                                description="The realtime exchange rate",
                                 tools=[exchange_rate],
                                 )
 

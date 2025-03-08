@@ -51,7 +51,7 @@ To run the currency conversion agent, execute the following command:
 > Ensure that the Ollama server is running.
 
 ```sh
-poetry run currency_exchange_sample.py
+poetry run python -m sample_smolagents.currency_exchange_sample
 ```
 
 Observe it uses the tools provided.
@@ -63,7 +63,7 @@ To run the currency conversion agent with planning, execute the following comman
 > Ensure that the Ollama server is running.
 
 ```sh
-poetry run currency_exchange_planning_sample.py
+poetry run python -m sample_smolagents.currency_exchange_planning_sample.py
 ```
 
 Observe the planning that happens for each step.
@@ -75,7 +75,7 @@ To run the currency conversion agent with a manager, execute the following comma
 > Ensure that the Ollama server is running.
 
 ```sh
-poetry run currency_exchange_managed_sample.py
+poetry run python -m sample_smolagents.currency_exchange_managed_sample.py
 ```
 
 Observe how the manager delegates tasks to other agents if necessary.
