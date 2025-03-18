@@ -7,7 +7,6 @@ This project demonstrates the use of [smolagents](https://huggingface.co/docs/sm
 ## Requirements
 
 - Python >= 3.13
-- Poetry *(i.e. dependency manager)*
 - [Ollama](https://github.com/ollama/ollama)
 
 ## Installation
@@ -19,6 +18,13 @@ This project demonstrates the use of [smolagents](https://huggingface.co/docs/sm
     ```
 
 2. Install the dependencies:
+
+    > Install Poetry using the following command if not yet installed:
+    >
+    > ```
+    > python -m pip install poetry
+    > ```
+
     ```sh
     poetry install
     ```
