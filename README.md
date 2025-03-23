@@ -1,14 +1,54 @@
 # Sample Usage Smolagents
 
+[TOC]
+
 ## Overview
 
-This project demonstrates the use of [smolagents](https://huggingface.co/docs/smolagents/en/index) from Hugging Face to create AI agents.
+This project demonstrates the use of [smolagents](https://huggingface.co/docs/smolagents/en/index) from **Hugging Face** to create **AI agents**. The samples were created on **Windows** and will create files on `C:\\tmp` directory.
 
 ## Requirements
 
 - Python >= 3.13
 - [Ollama](https://github.com/ollama/ollama)
 - [Hugging Face Token](https://huggingface.co/settings/tokens)
+
+## Running the Ollama Server
+
+To start the Ollama server, execute the following command:
+
+```sh
+ollama serve
+```
+
+> The server will listen on port 11434 by default.
+
+## Running the Qwen2.5 Model with Ollama
+
+While the Ollama server is running, download the model using the following command:
+
+```sh
+ollama run qwen2.5
+```
+
+> This only needs to be done once.
+
+> This is a small agent and can get confused easily. For a more robust implementation, use a model with more parameters.
+
+## The .env File
+
+Create a `.env` file with the following content:
+
+```properties
+HF_TOKEN=<HUGGING_FACE_TOKEN>
+```
+
+Replace `<HUGGING_FACE_TOKEN>` with your actual Hugging Face token. This is required because all the samples use the Inference API with the following model by default:
+
+```
+Qwen/QwQ-32B
+```
+
+> Switch to **Ollama** model if needed by changing the `active_model` to `local_model` in the **model.ModelMgr** module.
 
 ## Installation
 
@@ -31,85 +71,67 @@ This project demonstrates the use of [smolagents](https://huggingface.co/docs/sm
    poetry install
    ```
 
-## Running the Ollama Server
+## Non-MCP Samples
 
-To start the Ollama server, execute the following command:
-
-```sh
-ollama serve
-```
-
-> The server will listen on port 11434 by default.
-
-## Downloading the Qwen2.5 Model
-
-While the Ollama server is running, download the model using the following command:
+### Simple File Management with AI Agent
 
 ```sh
-ollama run qwen2.5
-```
-
-> This only needs to be done once.
-
-> This is a small agent and can get confused easily. For a more robust implementation, use a model with more parameters.
-
-## Sample Currency Exchange
-
-To run the currency conversion agent, execute the following command:
-
-> Ensure the Ollama server is running.
-
-```sh
-poetry run python -m sample_smolagents.currency_exchange_sample
+poetry run python -m sample.simple.file_management_sample
 ```
 
 Observe if it uses the provided tools.
 
-## Sample Currency Exchange with Planning
-
-To run the currency conversion agent with planning, execute the following command:
-
-> Ensure the Ollama server is running.
+### Simple File Management with AI Manager Agent
 
 ```sh
-poetry run python -m sample_smolagents.currency_exchange_planning_sample
+poetry run python -m sample.simple.file_management_managed_sample
 ```
 
-Observe the planning process for each step.
+Observe if it uses the provided tools.
 
-## Sample Currency Exchange with Agent Manager
+## MCP Stdio Server Samples
 
-To run the currency conversion agent with a manager, execute the following command:
-
-> Ensure the Ollama server is running.
+### Simple File Management with AI Agent
 
 ```sh
-poetry run python -m sample_smolagents.currency_exchange_managed_sample
+poetry run python -m sample.mcp.stdio.file_management_sample
 ```
 
-Observe how the manager delegates tasks to other agents, if necessary.
+Observe if it uses the provided tools.
 
-## Sample File Management
+### Simple File Management with AI Manager Agent
 
-1. Create a `.env` file with the following content:
+```sh
+poetry run python -m sample.mcp.stdio.file_management_managed_sample
+```
 
-   ```properties
-   HF_TOKEN=<HUGGING_FACE_TOKEN>
-   ```
+Observe if it uses the provided tools.
 
-   Replace `<HUGGING_FACE_TOKEN>` with your actual Hugging Face token. This is required because this sample uses the Inference API with the following model:
+## MCP SSE Server Samples
 
-   ```
-   Qwen/QwQ-32B
-   ```
+### Starting the MCP SSE Server
 
-2. Execute the following command:
+The server must be running before running any sample from this section.
 
-   ```sh
-   poetry run python -m sample_smolagents.file_management_sample
-   ```
+```sh
+poetry run python -m mcp_servers.file_manager_server_sse
+```
 
-​	Observe if it uses the provided tools.
+### Simple File Management with AI Agent
+
+```sh
+poetry run python -m sample.mcp.sse.file_management_sample
+```
+
+Observe if it uses the provided tools.
+
+### Simple File Management with AI Manager Agent
+
+```sh
+poetry run python -m sample.mcp.sse.file_management_managed_sample
+```
+
+Observe if it uses the provided tools.
 
 ## Author
 
