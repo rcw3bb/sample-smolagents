@@ -1,10 +1,10 @@
-# Sample Usage Smolagents
+# Sample Usage: Smolagents
 
 [TOC]
 
 ## Overview
 
-This project demonstrates the use of [smolagents](https://huggingface.co/docs/smolagents/en/index) from **Hugging Face** to create **AI agents**. The samples were created on **Windows** and will create files on `C:\\tmp` directory.
+This project demonstrates the use of [smolagents](https://huggingface.co/docs/smolagents/en/index) from **Hugging Face** to create **AI agents**. The samples were created on **Windows** and will create files in the `C:\\tmp` directory.
 
 ## Requirements
 
@@ -20,7 +20,7 @@ To start the Ollama server, execute the following command:
 ollama serve
 ```
 
-> The server will listen on port 11434 by default.
+> The server listens on port 11434 by default.
 
 ## Running the Qwen2.5 Model with Ollama
 
@@ -32,7 +32,7 @@ ollama run qwen2.5
 
 > This only needs to be done once.
 
-> This is a small agent and can get confused easily. For a more robust implementation, use a model with more parameters.
+> Note: This is a small agent and may get confused easily. For a more robust implementation, use a model with more parameters.
 
 ## The .env File
 
@@ -48,7 +48,7 @@ Replace `<HUGGING_FACE_TOKEN>` with your actual Hugging Face token. This is requ
 Qwen/QwQ-32B
 ```
 
-> Switch to **Ollama** model if needed by changing the `active_model` to `local_model` in the **model.ModelMgr** module.
+> Switch to the **Ollama** model if needed by changing the `active_model` to `local_model` in the **model.ModelMgr** module.
 
 ## Installation
 
@@ -59,20 +59,20 @@ Qwen/QwQ-32B
    cd sample-smolagents
    ```
 
-2. Installing the dependencies:
+2. Install the dependencies:
 
    > If Poetry is not yet installed, use the following command to install it:
    >
    > ```sh
    > python -m pip install poetry
    > ```
-   > After the installation make the `poetry` available to `CLI` by updating `PATH` environment variable to include the following if you are using `Windows`:
+   > After installation, make `poetry` available to the `CLI` by updating the `PATH` environment variable to include the following if you are using **Windows**:
    >
    > ```sh
    > %LOCALAPPDATA%\Programs\Python\Python313\Scripts
    > ```
    
-   > If your **system Python** is lower than **Python 13**, use the following command to install it:
+   > If your **system Python** version is lower than **Python 3.13**, use the following command to install it:
    >
    > ```sh
    > poetry python install 3.13
@@ -90,7 +90,7 @@ Qwen/QwQ-32B
 poetry run python -m sample.simple.file_management_sample
 ```
 
-Observe if it uses the provided tools.
+Observe whether it uses the provided tools.
 
 ### Simple File Management with AI Manager Agent
 
@@ -98,7 +98,7 @@ Observe if it uses the provided tools.
 poetry run python -m sample.simple.file_management_managed_sample
 ```
 
-Observe if it uses the provided tools.
+Observe whether it uses the provided tools.
 
 ## MCP Stdio Server Samples
 
@@ -108,7 +108,7 @@ Observe if it uses the provided tools.
 poetry run python -m sample.mcp.stdio.file_management_sample
 ```
 
-Observe if it uses the provided tools.
+Observe whether it uses the provided tools.
 
 ### Simple File Management with AI Manager Agent
 
@@ -116,15 +116,15 @@ Observe if it uses the provided tools.
 poetry run python -m sample.mcp.stdio.file_management_managed_sample
 ```
 
-Observe if it uses the provided tools.
+Observe whether it uses the provided tools.
 
-### Using the Just the MCP Server
+### Using Just the MCP Server
 
 ```sh
 poetry -C <ROOT_DIR> run python -m mcp_servers.file_manager_server_stdio
 ```
 
-Where the **\<ROOT_DIR\>** is the directory that contains the `mcp_servers` directory.
+Where **\<ROOT_DIR\>** is the directory that contains the `mcp_servers` directory.
 
 Use the following prompt to test the server:
 
@@ -150,7 +150,7 @@ poetry run python -m mcp_servers.file_manager_server_sse
 poetry run python -m sample.mcp.sse.file_management_sample
 ```
 
-Observe if it uses the provided tools.
+Observe whether it uses the provided tools.
 
 ### Simple File Management with AI Manager Agent
 
@@ -158,16 +158,16 @@ Observe if it uses the provided tools.
 poetry run python -m sample.mcp.sse.file_management_managed_sample
 ```
 
-Observe if it uses the provided tools.
+Observe whether it uses the provided tools.
 
-### Using the Just the MCP Server
+### Using Just the MCP Server
 
 1. Run the server using the following command: 
    ```sh
    poetry -C <ROOT_DIR> run python -m mcp_servers.file_manager_server_sse
    ```
 
-   Where the **\<ROOT_DIR\>** is the directory that contains the `mcp_servers` directory. This will run a server on port `8000`.
+   Where **\<ROOT_DIR\>** is the directory that contains the `mcp_servers` directory. This will run a server on port `8000`.
 
 2. Use the following address to attach to an agent:
 
@@ -175,7 +175,7 @@ Observe if it uses the provided tools.
    http://localhost:8000/sse
    ```
 
-Use the following prompt to test server:
+Use the following prompt to test the server:
 
 ```
 Write the text "Hello, World!" to "C:/tmp/mcp-sse-hello.txt" and show me its content.
