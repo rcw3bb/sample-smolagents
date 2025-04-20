@@ -59,14 +59,25 @@ Qwen/QwQ-32B
    cd sample-smolagents
    ```
 
-2. Install the dependencies:
+2. Installing the dependencies:
 
    > If Poetry is not yet installed, use the following command to install it:
    >
    > ```sh
    > python -m pip install poetry
    > ```
-
+   > After the installation make the `poetry` available to `CLI` by updating `PATH` environment variable to include the following if you are using `Windows`:
+   >
+   > ```sh
+   > %LOCALAPPDATA%\Programs\Python\Python313\Scripts
+   > ```
+   
+   > If your **system Python** is lower than **Python 13**, use the following command to install it:
+   >
+   > ```sh
+   > poetry python install 3.13
+   > ```
+   
    ```sh
    poetry install
    ```
@@ -107,6 +118,22 @@ poetry run python -m sample.mcp.stdio.file_management_managed_sample
 
 Observe if it uses the provided tools.
 
+### Using the Just the MCP Server
+
+```sh
+poetry -C <ROOT_DIR> run python -m mcp_servers.file_manager_server_stdio
+```
+
+Where the **\<ROOT_DIR\>** is the directory that contains the `mcp_servers` directory.
+
+Use the following prompt to test the server:
+
+```
+Write the text "Hello, World!" to "C:/tmp/mcp-stdio-hello.txt" and show me its content.
+```
+
+Expect to see that the `write_file` and `read_file` tools were utilized. 
+
 ## MCP SSE Server Samples
 
 ### Starting the MCP SSE Server
@@ -132,6 +159,29 @@ poetry run python -m sample.mcp.sse.file_management_managed_sample
 ```
 
 Observe if it uses the provided tools.
+
+### Using the Just the MCP Server
+
+1. Run the server using the following command: 
+   ```sh
+   poetry -C <ROOT_DIR> run python -m mcp_servers.file_manager_server_sse
+   ```
+
+   Where the **\<ROOT_DIR\>** is the directory that contains the `mcp_servers` directory. This will run a server on port `8000`.
+
+2. Use the following address to attach to an agent:
+
+   ```sh
+   http://localhost:8000/sse
+   ```
+
+Use the following prompt to test server:
+
+```
+Write the text "Hello, World!" to "C:/tmp/mcp-sse-hello.txt" and show me its content.
+```
+
+Expect to see that the `write_file` and `read_file` tools were utilized. 
 
 ## Author
 
